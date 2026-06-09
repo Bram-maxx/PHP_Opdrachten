@@ -7,8 +7,7 @@ class Ticket
         public readonly Voorstelling $voorstelling,
         public readonly string $naam,
         public readonly int $ticketnummer
-    ) {
-    }
+    ) {}
 
     public function getPrijs(): float
     {
@@ -17,13 +16,15 @@ class Ticket
 
     public function getBevestiging(): string
     {
-        $prijs = number_format($this->getPrijs(), 2);
-
-        return
-            "Ticket #{$this->ticketnummer} | " .
-            "{$this->voorstelling->film->titel} | " .
-            "{$this->voorstelling->zaal->getZaalnaam()} | " .
-            "{$this->voorstelling->datum} {$this->voorstelling->tijd} | " .
-            "EUR {$prijs} | Op naam van: {$this->naam}";
+        return sprintf(
+            "Ticket #%d | %s | %s | %s %s | EUR %.2f | Op naam van: %s",
+            $this->ticketnummer,
+            $this->voorstelling->film->titel,
+            $this->voorstelling->zaal->getZaalnaam(),
+            $this->voorstelling->datum,
+            $this->voorstelling->tijd,
+            $this->getPrijs(),
+            $this->naam
+        );
     }
 }

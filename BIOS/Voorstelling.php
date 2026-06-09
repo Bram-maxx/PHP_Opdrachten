@@ -1,8 +1,6 @@
 <?php
 declare(strict_types=1);
 
-require_once 'Film.php';
-require_once 'Zaal.php';
 require_once 'Ticket.php';
 
 class Voorstelling
@@ -15,8 +13,7 @@ class Voorstelling
         public readonly string $datum,
         public readonly string $tijd,
         public readonly float $ticketprijs
-    ) {
-    }
+    ) {}
 
     public function verkoopTicket(string $naam): Ticket
     {

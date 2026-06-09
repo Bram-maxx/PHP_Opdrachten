@@ -8,8 +8,7 @@ class Film
         public readonly string $regisseur,
         public readonly int $duurInMinuten,
         public readonly int $leeftijdsgrens
-    ) {
-    }
+    ) {}
 
     public function getDuurAlsString(): string
     {

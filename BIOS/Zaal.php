@@ -7,15 +7,12 @@ class Zaal
         public readonly int $nummer,
         public readonly int $aantalStoelen,
         public readonly bool $isIMAX
-    ) {
-    }
+    ) {}
 
     public function getZaalnaam(): string
     {
-        if ($this->isIMAX) {
-            return "IMAX Zaal {$this->nummer}";
-        }
-
-        return "Zaal {$this->nummer}";
+        return $this->isIMAX
+            ? "IMAX Zaal {$this->nummer}"
+            : "Zaal {$this->nummer}";
     }
 }
